@@ -92,7 +92,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should add "collapsed" class to target when collapse is hidden', function (assert) {
@@ -108,7 +108,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should remove "collapsed" class from all triggers targeting the collapse when the collapse is shown', function (assert) {
@@ -126,7 +126,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should add "collapsed" class to all triggers targeting the collapse when the collapse is hidden', function (assert) {
@@ -144,7 +144,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should not close a collapse when initialized with "show" if already shown', function (assert) {
@@ -208,7 +208,7 @@ $(function () {
         done()
       })
 
-    $target3.click()
+    $target3.trigger('click')
   })
 
   QUnit.test('should allow dots in data-parent', function (assert) {
@@ -242,7 +242,7 @@ $(function () {
         done()
       })
 
-    $target3.click()
+    $target3.trigger('click')
   })
 
   QUnit.test('should set aria-expanded="true" on target when collapse is shown', function (assert) {
@@ -258,7 +258,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should set aria-expanded="false" on target when collapse is hidden', function (assert) {
@@ -274,7 +274,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should set aria-expanded="true" on all triggers targeting the collapse when the collapse is shown', function (assert) {
@@ -292,7 +292,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should set aria-expanded="false" on all triggers targeting the collapse when the collapse is hidden', function (assert) {
@@ -310,7 +310,7 @@ $(function () {
         done()
       })
 
-    $target.click()
+    $target.trigger('click')
   })
 
   QUnit.test('should change aria-expanded from active accordion target to "false" and set the newly active one to "true"', function (assert) {
@@ -344,7 +344,7 @@ $(function () {
         done()
       })
 
-    $target3.click()
+    $target3.trigger('click')
   })
 
   QUnit.test('should not fire show event if show is prevented because other element is still transitioning', function (assert) {
@@ -369,13 +369,13 @@ $(function () {
     var $target2 = $('<a data-toggle="collapse" href="#body2" data-parent="#accordion"/>').appendTo($groups.eq(1))
     var $body2   = $('<div id="body2" class="collapse"/>').appendTo($groups.eq(1))
 
-    $target2.click()
+    $target2.trigger('click')
 
     $body2
       .toggleClass('in collapsing')
       .data('bs.collapse').transitioning = 1
 
-    $target1.click()
+    $target1.trigger('click')
 
     setTimeout(function () {
       assert.ok(!showFired, 'show event did not fire')
